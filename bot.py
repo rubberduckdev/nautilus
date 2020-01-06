@@ -1,3 +1,4 @@
+from __future__ import print_function
 import sys
 import time
 import logging
@@ -191,7 +192,7 @@ class nautilusBotFactory(protocol.ClientFactory):
                 self.logger.info('Loading {}'.format(modulename))
                 module = __import__(modulename, globals(), locals(), [], -1)
                 if module in self.bot.loaded_modules:
-                    print 'trying to reload %s' % modulename
+                    print('trying to reload %s' % modulename)
                     reload(module)
             except ImportError as e:
                 self.logger.warn('Unable to load {}. {}'.format(modulename, e))
@@ -200,7 +201,7 @@ class nautilusBotFactory(protocol.ClientFactory):
                 loaded_modules_names.append(modulename)
         self.bot.loaded_modules = loaded_modules
         Base.metadata.create_all(engine)
-        print baseClass.__subclasses__()
+        print(baseClass.__subclasses__())
         for cls in baseClass.__subclasses__():
             if cls.__module__ in loaded_modules_names:
                 instance = cls(self.bot)

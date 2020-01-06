@@ -1,10 +1,11 @@
+from __future__ import absolute_import
 import random
 import urllib
 import urllib2
 from bs4 import BeautifulSoup
 from core.base import baseClass, command
 from core.utils import split_address
-from truerandom import truerandomClass
+from .truerandom import truerandomClass
 
 class Gimetria(baseClass):
     def get_random_term(self, text):

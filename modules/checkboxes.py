@@ -1,6 +1,7 @@
+from __future__ import absolute_import
 import re
 from core import base
-from truerandom import truerandomClass
+from .truerandom import truerandomClass
 from random import randint
 
 checkboxes = re.compile('^(\[ \] .+ )+(\[ \] .+)')

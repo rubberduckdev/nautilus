@@ -13,14 +13,14 @@ class DownForMe(base.baseClass):
         if isup[0].strip() == "It's not just you!":
             up = False
         elif isup[0].strip().split()[0] == 'Huh?':
-            raise StandardError('Huh?')
+            raise Exception('Huh?')
         return site, up
 
     def on_privmsg(self, address, target, text):
         if text[0] in base.prefix and text.strip().split(' ', 1)[0][1:] in ('downforeveryoneorjustme', 'down', 'isdown', 'isup') and len(text.split()) >= 2:
             try:
                 site, up = self.check(' '.join(text.split()[1:]))
-            except (urllib2.HTTPError, StandardError) as e:
+            except (urllib2.HTTPError, Exception) as e:
                 self.irc.logger.exception(e)
                 self.irc.msg(target, 'dfeojm - error occured')
             else:

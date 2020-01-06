@@ -1,4 +1,5 @@
-from conf import settings
+from __future__ import absolute_import
+from .conf import settings
 from contextlib import contextmanager
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
